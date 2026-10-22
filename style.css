@@ -1,0 +1,43 @@
+:root { --ink:#1d2a24; --muted:#66736c; --paper:#fbfaf6; --card:#fff; --line:#dcdfd6; --leaf:#2f6b4f; --leaf-d:#235139;
+  --crit:#b3261e; --high:#c2610f; --med:#8a6d00; --low:#4b6b8a; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+@media (prefers-color-scheme: dark) { :root { --ink:#e8ece6; --muted:#9aa8a0; --paper:#141a17; --card:#1c2420; --line:#2f3a34; --leaf:#5fae86; --leaf-d:#7cc7a0; } }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--paper); color:var(--ink); line-height:1.5; }
+h1,h2,h3 { font-family: Georgia, "Times New Roman", serif; font-weight:600; margin:0 0 .6rem; }
+h1 { font-size:1.6rem } h2 { font-size:1.25rem } h3 { font-size:1.05rem }
+nav { display:flex; gap:1rem; align-items:center; padding:.7rem 1.2rem; border-bottom:1px solid var(--line); background:var(--card); flex-wrap:wrap; }
+nav .brand { font-family:Georgia,serif; font-weight:700; color:var(--leaf); margin-right:auto; font-size:1.15rem }
+nav a { color:var(--ink); text-decoration:none; padding:.25rem .1rem; border-bottom:2px solid transparent }
+nav a.active { border-color:var(--leaf) }
+main { max-width:1150px; margin:1.5rem auto; padding:0 1.2rem; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:6px; padding:1rem 1.2rem; margin-bottom:1rem; }
+.grid { display:grid; gap:1rem; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); }
+.stats { display:grid; grid-template-columns:repeat(3,1fr); gap:.5rem; margin:.7rem 0; }
+.stats div { font-size:.85rem; color:var(--muted) } .stats b { display:block; font-size:1.05rem; color:var(--ink) }
+label { display:block; font-size:.88rem; font-weight:600; margin:.8rem 0 .25rem }
+input,select,textarea,button { font:inherit; color:inherit }
+input,select,textarea { width:100%; padding:.5rem .6rem; border:1px solid var(--line); border-radius:4px; background:var(--card); }
+textarea { min-height:150px; resize:vertical }
+button { cursor:pointer; padding:.5rem .9rem; border:1px solid var(--leaf); background:var(--leaf); color:#fff; border-radius:4px }
+button.secondary { background:transparent; color:var(--leaf-d) } button:disabled { opacity:.5; cursor:default }
+:focus-visible { outline:2px solid var(--leaf); outline-offset:2px }
+table { width:100%; border-collapse:collapse; font-size:.9rem }
+th,td { text-align:left; padding:.55rem .5rem; border-bottom:1px solid var(--line); vertical-align:top }
+tbody tr { cursor:pointer } tbody tr:hover { background:color-mix(in srgb, var(--leaf) 8%, transparent) }
+tr.stale td:first-child { box-shadow: inset 3px 0 0 var(--crit) }
+.badge { display:inline-block; padding:.05rem .5rem; border-radius:99px; font-size:.78rem; border:1px solid currentColor; white-space:nowrap }
+.p-Critical { color:var(--crit); font-weight:700 } .p-High { color:var(--high) } .p-Medium { color:var(--med) } .p-Low { color:var(--low) }
+.s-Open { color:var(--high) } .s-In\ Progress { color:var(--low) } .s-Resolved { color:var(--leaf) } .s-Closed { color:var(--muted) }
+.src { font-size:.72rem; color:var(--muted); margin-left:.3rem }
+.filters { display:flex; gap:.6rem; flex-wrap:wrap; margin-bottom:1rem } .filters > * { width:auto; min-width:130px }
+.cols { display:grid; grid-template-columns:minmax(0,2fr) minmax(260px,1fr); gap:1rem } @media (max-width:820px){ .cols{grid-template-columns:1fr} }
+.msg { border-left:3px solid var(--line); padding:.4rem .8rem; margin:.7rem 0; white-space:pre-wrap }
+.msg.admin { border-color:var(--leaf) } .msg small { display:block; color:var(--muted) }
+.note { background:color-mix(in srgb, var(--med) 12%, transparent); padding:.5rem .7rem; border-radius:4px; margin:.5rem 0; font-size:.9rem; white-space:pre-wrap }
+.muted { color:var(--muted); font-size:.9rem } .error { color:var(--crit) } .empty { text-align:center; padding:2rem; color:var(--muted) }
+.row { display:flex; gap:.5rem; align-items:center; flex-wrap:wrap; margin-top:.6rem }
+.row select { width:auto }
+.login { max-width:380px; margin:12vh auto }
+#toast { position:fixed; bottom:1rem; right:1rem; background:var(--ink); color:var(--paper); padding:.6rem .9rem; border-radius:4px; opacity:0; transition:opacity .2s; pointer-events:none; max-width:320px }
+#toast.show { opacity:1 }
+@media (prefers-reduced-motion: reduce) { * { transition:none !important } }
